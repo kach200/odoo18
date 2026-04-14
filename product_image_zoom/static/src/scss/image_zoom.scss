@@ -1,0 +1,68 @@
+.o_piz_zoom_clickable {
+    cursor: zoom-in;
+}
+
+.o_piz_zoom_overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    background: rgba(0, 0, 0, 0.78);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.o_piz_zoom_stage {
+    width: 96vw;
+    max-width: 1600px;
+    height: 92vh;
+    max-height: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.o_piz_zoom_image {
+    max-width: 100%;
+    max-height: 100%;
+    transform-origin: center center;
+    transition: transform 120ms ease;
+    user-select: none;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+}
+
+.o_piz_zoom_toolbar {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    background: #1f2a44;
+    border-radius: 2px;
+    overflow: hidden;
+
+    button {
+        width: 46px;
+        height: 40px;
+        border: 0;
+        color: #fff;
+        background: transparent;
+    }
+
+    button:hover {
+        background: #2b3a5c;
+    }
+}
+
+.o_piz_zoom_close {
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 0;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.45);
+}

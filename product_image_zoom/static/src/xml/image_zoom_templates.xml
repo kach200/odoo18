@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="product_image_zoom.ImageField" t-inherit="web.ImageField" t-inherit-mode="extension">
+        <xpath expr="//img" position="attributes">
+            <attribute name="t-on-click">onZoomOpen</attribute>
+            <attribute name="t-attf-class">{{imgClass}} {{canOpenZoomViewer ? 'o_piz_zoom_clickable' : ''}}</attribute>
+        </xpath>
+
+        <xpath expr="//img" position="after">
+            <div t-if="zoomViewer.open" class="o_piz_zoom_overlay" t-on-click="onZoomBackdropClick">
+                <button class="o_piz_zoom_close" type="button" aria-label="Cerrar" t-on-click.stop="closeZoomViewer">
+                    <i class="fa fa-times"/>
+                </button>
+
+                <div class="o_piz_zoom_stage" t-on-wheel.prevent="onZoomWheel">
+                    <img
+                        class="o_piz_zoom_image"
+                        t-att-src="zoomImageUrl"
+                        t-att-alt="imgAlt"
+                        t-att-style="'transform: scale(' + zoomViewer.scale + ');'"
+                    />
+                </div>
+
+                <div class="o_piz_zoom_toolbar" role="toolbar" aria-label="Controles de zoom">
+                    <button type="button" aria-label="Acercar" t-on-click.stop="zoomIn">
+                        <i class="fa fa-plus"/>
+                    </button>
+                    <button type="button" aria-label="Alejar" t-on-click.stop="zoomOut">
+                        <i class="fa fa-minus"/>
+                    </button>
+                    <button type="button" aria-label="Restablecer" t-on-click.stop="resetZoom">
+                        <i class="fa fa-repeat"/>
+                    </button>
+                    <button type="button" aria-label="Descargar" t-on-click.stop="onZoomDownload">
+                        <i class="fa fa-download"/>
+                    </button>
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>

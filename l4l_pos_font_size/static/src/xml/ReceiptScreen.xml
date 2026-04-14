@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="point_of_sale.ReceiptScreen" t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('actions d-flex flex-column justify-content-between flex-lg-grow-1 flex-grow-0 flex-shrink-1 flex-basis-0 border-end')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{ReceiptScreenFontSize()}};
+            </attribute>
+        </xpath>
+    </t>
+    <t t-name="point_of_sale.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('pos-receipt p-2')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{ReceiptScreenFontSize()}};
+            </attribute>
+        </xpath>
+    </t>
+</templates>

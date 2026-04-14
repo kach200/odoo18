@@ -1,0 +1,27 @@
+.btn-primary{
+    font-size: inherit;
+}
+
+.btn-secondary{
+    font-size: inherit;
+}
+
+.fs-2 {
+    font-size: inherit;
+}
+
+.fs-3 {
+    font-size: inherit !important;
+}
+
+.fs-4 {
+    font-size: inherit !important;
+}
+
+.fs-1 {
+    font-size: inherit;
+}
+
+btn.btn-primary{
+    font-size: inherit;
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="point_of_sale.OrderWidget" t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('order-container d-flex flex-column flex-grow-1 overflow-y-auto text-start')]" position="attributes">
+            <attribute name="t-attf-style">font-size: {{POSOrderLineFontSize()}};</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('d-flex justify-content-between w-100 fs-2')]" position="attributes">
+            <attribute name="t-attf-style">font-size: {{POSOrderLineFontSize()}};</attribute>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="l4l_pos_font_size_view" model="ir.ui.view">
+        <field name="name">l4l.pos.font.size.view</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='restaurant_section']" position="after">
+                <block title="PoS Font Size" id="pos_font_size">
+                    <setting help="Allow to Change PoS Product Card Font Size">
+                        <field name="product_font_size"/>
+                        <div class="content-group mt16" invisible="not product_font_size">
+                            <label for="pos_font_size" string="Product Card Font Size" class="fw-normal"/>
+                            <field name="pos_font_size" required="product_font_size"/>
+                        </div>
+                    </setting>
+                    <setting help="Allow to Change PoS Product Category Font Size">
+                        <field name="product_category_font_size"/>
+                        <div class="content-group mt16" invisible="not product_category_font_size">
+                            <label for="pos_pro_category_font_size" string="POS Product Category Font Size" class="fw-normal"/>
+                            <field name="pos_pro_category_font_size" required="product_category_font_size"/>
+                        </div>
+                    </setting>
+                    <setting help="Allow to Change PoS Numpad Font Size">
+                        <field name="pos_numpad_font_size"/>
+                        <div class="content-group mt16" invisible="not pos_numpad_font_size">
+                            <label for="pos_default_numpad_font_size" string="Numpad Font Size" class="fw-normal"/>
+                            <field name="pos_default_numpad_font_size"/>
+                        </div>
+                    </setting>
+                    <setting help="Allow to Change PoS Customer List View Font Size">
+                        <field name="customer_list_font_size"/>
+                        <div class="content-group mt16" invisible="not customer_list_font_size">
+                            <label for="pos_customer_font_size" string="Customers List View Font Size" class="fw-normal"/>
+                            <field name="pos_customer_font_size"/>
+                        </div>
+                    </setting>
+                    <setting help="Allow to Change PoS Control Button Font Size">
+                        <field name="control_button_font_size"/>
+                        <div class="content-group mt16" invisible="not control_button_font_size">
+                            <label for="pos_control_buttons_font_size" string="Control Button Font Size" class="fw-normal"/>
+                            <field name="pos_control_buttons_font_size"/>
+                        </div>
+                    </setting>
+                    <setting help="Allow to Change PoS Sale Order List View Font Size">
+                        <field name="sale_order_list_font_size"/>
+                        <div class="content-group mt16" invisible="not sale_order_list_font_size">
+                            <label for="pos_sale_order_tree_font_size" string="Sale Order List View Font Size" class="fw-normal"/>
+                            <field name="pos_sale_order_tree_font_size"/>
+                        </div>
+                    </setting>
+                    <setting help="Allow to Change PoS Refund Button List View Font Size">
+                        <field name="refund_button_list_font_size"/>
+                        <div class="content-group mt16" invisible="not refund_button_list_font_size">
+                            <label for="pos_refund_list_view_font_size" string="Refund Button List View Font Size" class="fw-normal"/>
+                            <field name="pos_refund_list_view_font_size"/>
+                        </div>
+                    </setting>
+                    <setting help="Allow to Change PoS Order Line Font Size">
+                        <field name="pos_order_line_font_size"/>
+                        <div class="content-group mt16" invisible="not pos_order_line_font_size">
+                            <label for="order_lines_font_size" string="POS Order Line Font Size" class="fw-normal"/>
+                            <field name="order_lines_font_size"/>
+                        </div>
+                    </setting>
+                    <setting help="Allow to Change PoS Payment Screen Font Size">
+                        <field name="payment_screen_font_size"/>
+                        <div class="content-group mt16" invisible="not payment_screen_font_size">
+                            <label for="pos_payments_screen_font_size" string="POS Payment Screen Font Size" class="fw-normal"/>
+                            <field name="pos_payments_screen_font_size"/>
+                        </div>
+                    </setting>
+                    <setting help="Allow to Change PoS Receipt Screen Font Size">
+                        <field name="receipt_screen_font_size"/>
+                        <div class="content-group mt16" invisible="not receipt_screen_font_size">
+                            <label for="pos_receipts_screen_font_size" string="POS Receipt Screen Font Size" class="fw-normal"/>
+                            <field name="pos_receipts_screen_font_size"/>
+                        </div>
+                    </setting>
+
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

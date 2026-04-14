@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="point_of_sale.PaymentScreenButtons" t-inherit="point_of_sale.PaymentScreenButtons" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('payment-buttons d-flex flex-column gap-2')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{POSPaymentScreenFontSize()}}
+            </attribute>
+        </xpath>
+    </t>
+
+    <t t-name="point_of_sale.PaymentScreenMethods" t-inherit="point_of_sale.PaymentScreenMethods" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('paymentmethods-container mb-3')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{POSPaymentScreenFontSize()}}
+            </attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('button paymentmethod btn btn-light btn-lg lh-lg flex-fill')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{POSPaymentScreenFontSize()}}
+            </attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('payment-method-display d-flex align-items-center gap-2 text-wrap text-start lh-sm')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{POSPaymentScreenFontSize()}}
+            </attribute>
+        </xpath>
+    </t>
+
+    <t t-name="point_of_sale.PaymentScreenValidate" t-inherit="point_of_sale.PaymentScreenValidate" t-inherit-mode="extension" owl="1">
+        <xpath expr="//button[hasclass('validation-button next btn btn-primary btn-lg py-3 lh-lg')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{POSPaymentScreenFontSize()}}
+            </attribute>
+        </xpath>
+<!--        <xpath expr="//button[hasclass('btn-switchpane validation-button btn btn-primary btn-lg flex-fill py-3 lh-lg')]" position="attributes">-->
+<!--            <attribute name="t-attf-style">-->
+<!--                font-size: {{POSPaymentScreenFontSize()}}-->
+<!--            </attribute>-->
+<!--        </xpath>-->
+    </t>
+
+    <t t-name="point_of_sale.PaymentScreenBack" t-inherit="point_of_sale.PaymentScreenBack" t-inherit-mode="extension" owl="1">
+        <xpath expr="//t/button[hasclass('btn-switchpane back-button validation-button btn btn-light btn-lg lh-lg')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{POSPaymentScreenFontSize()}}
+            </attribute>
+        </xpath>
+        <xpath expr="//t/button[hasclass('button back back-button validation btn btn-light btn-lg w-50 py-3 lh-lg')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{POSPaymentScreenFontSize()}}
+            </attribute>
+        </xpath>
+    </t>
+
+    <t t-name="point_of_sale.PaymentScreenDue" t-inherit="point_of_sale.PaymentScreenDue" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('total text-center py-2 py-lg-4 text-success')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{POSPaymentScreenFontSize()}}
+            </attribute>
+        </xpath>
+    </t>
+
+    <t t-name="point_of_sale.PaymentScreenStatus" t-inherit="point_of_sale.PaymentScreenStatus" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('payment-status-remaining d-flex justify-content-between flex-grow-1')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{POSPaymentScreenFontSize()}}
+            </attribute>
+        </xpath>
+    </t>
+
+    <t t-name="point_of_sale.PaymentScreenPaymentLines" t-inherit="point_of_sale.PaymentScreenPaymentLines" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('payment-infos d-flex align-items-center justify-content-between flex-grow-1 px-3 py-3 text-truncate cursor-pointer fs-2')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{POSPaymentScreenFontSize()}}
+            </attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('paymentline d-flex align-items-center bg-view border rounded-3')]/div[hasclass('payment-infos d-flex align-items-center justify-content-between flex-grow-1 px-3 py-3 text-truncate cursor-pointer fs-2')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{POSPaymentScreenFontSize()}}
+            </attribute>
+        </xpath>
+    </t>
+</templates>

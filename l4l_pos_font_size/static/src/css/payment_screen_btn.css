@@ -1,0 +1,75 @@
+.partner-button.btn{
+    font-size: inherit;
+}
+
+.btn-light{
+    font-size: inherit;
+}
+
+/* Keep selected payment lines visible on small mobile screens. */
+@media (max-width: 768px) {
+    .payment-screen.screen .js_invoice {
+        display: none !important;
+    }
+
+    .pos-topheader {
+        padding-left: 0.35rem !important;
+        padding-right: 0.35rem !important;
+    }
+
+    .pos-topheader .pos-leftheader {
+        width: auto !important;
+        max-width: calc(100% - 3rem);
+    }
+
+    .payment-screen.screen .paymentmethods-container {
+        flex: 1 1 0;
+        min-height: 0;
+        overflow-y: auto;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .payment-screen.screen .paymentmethods {
+        overflow-y: auto;
+    }
+
+    .payment-screen.screen .d-flex.flex-grow-1.flex-column.overflow-y-auto.gap-1 {
+        flex: 1 1 0 !important;
+        min-height: 0;
+        overflow-y: auto;
+    }
+
+    .payment-screen.screen .paymentlines {
+        min-height: 0;
+        gap: 0.35rem !important;
+        overflow-y: auto;
+    }
+
+    .payment-screen.screen .paymentlines-container.p-3 {
+        padding: 0.5rem 0.75rem !important;
+    }
+
+    .payment-screen.screen .payment-status-container {
+        min-height: 2.25rem;
+    }
+
+    .payment-screen.screen .paymentline {
+        min-height: 2.5rem;
+    }
+
+    .payment-screen.screen .paymentline .payment-infos {
+        padding: 0.45rem 0.7rem !important;
+    }
+
+    .payment-screen.screen .paymentline .payment-amount {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+
+    .payment-screen.screen .paymentline .delete-button {
+        margin-left: 0.25rem !important;
+        margin-right: 0.25rem !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+}

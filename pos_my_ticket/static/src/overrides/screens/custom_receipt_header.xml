@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- HEADER -->
+    <t t-name="pos_app.CustomReceiptHeader"
+       t-inherit="point_of_sale.ReceiptHeader"
+       t-inherit-mode="extension">
+
+        <xpath expr="//div[hasclass('pos-receipt-contact')]" position="attributes">
+            <attribute name="class" add="w-100" separator=" "/>
+        </xpath>
+
+        <xpath expr="//div[hasclass('pos-receipt-contact')]" position="inside">
+            <br/>
+            <div>--------------------------------</div>
+
+            <t t-set="invoice"
+                t-value="props.data.invoice_id || props.data.account_move || props.data.move || null" />
+            <t t-set="ref_name"
+                t-value="props.data.pos_name || props.data.name || props.data.order_name || ''" />
+            <t t-set="shop_name"
+                t-value="props.data.pos_config_name || ((ref_name &amp;&amp; ref_name.includes('/')) ? ref_name.split('/')[0] : '')" />
+
+            <t t-if="invoice || ref_name">
+                <div class="text-center my-1">
+                    <t t-if="invoice and (invoice.name or invoice.display_name or invoice.id)">
+                        <div><strong>INTERNO:</strong> <t t-out="invoice.name || invoice.display_name || invoice.id" /></div>
+                    </t>
+                    <t t-if="ref_name">
+                        <div><strong>REFERENCIA:</strong> <t t-out="ref_name" /></div>
+                    </t>
+                    <t t-if="invoice and invoice.invoice_date">
+                        <div><strong>FECHA:</strong> <t t-out="invoice.invoice_date" /></div>
+                    </t>
+                    <t t-if="shop_name">
+                        <div><strong>PUNTO DE VENTA:</strong> <t t-out="shop_name" /></div>
+                    </t>
+                </div>
+            </t>
+
+            <br/>
+            <div class="text-center">
+                <strong>INFORMACION DEL CLIENTE</strong>
+            </div>
+
+           <t t-set="partner" t-value="props.data.partner"/>
+            <t t-if="partner">
+                <div class="my-1 text-start">
+
+                    <div>
+                        <strong>Nombre: </strong>
+                        <t t-out="partner.name || 'Consumidor Final'"/>
+                    </div>
+
+                    <div>
+                        <strong>NIT: </strong>
+                        <t t-out="partner.vat || 'CF'"/>
+                    </div>
+
+                    <t t-if="partner.street">
+                        <div>
+                            <strong>Dirección: </strong>
+                            <t t-out="partner.street"/>
+                        </div>
+                    </t>
+
+                    <t t-if="partner.email">
+                        <div>
+                            <strong>Email: </strong>
+                            <t t-out="partner.email"/>
+                        </div>
+                    </t>
+
+                </div>
+            </t>
+
+            <div>--------------------------------</div>
+        </xpath>
+    </t>
+
+
+    <!-- FOOTER ITEMS COUNT -->
+    <t t-name="pos_orderline_items_count.OrderReceipt"
+       t-inherit="point_of_sale.OrderReceipt"
+       t-inherit-mode="extension"
+       owl="1">
+
+        <xpath expr="//div[hasclass('receipt-change')]" position="after">
+
+            <div>
+                <br/>
+                <div>--------------------------------</div>
+
+                <div>
+                    <span>Total líneas</span>
+                    <span style="float:right;">
+                        <t t-esc="props.data.count || 0"/>
+                    </span>
+                </div>
+
+                <div>
+                    <span>Cantidad total</span>
+                    <span style="float:right;">
+                        <t t-esc="props.data.sum || 0"/>
+                    </span>
+                </div>
+
+            </div>
+
+        </xpath>
+
+        <xpath expr="//div[hasclass('pos-receipt-order-data')]/p[normalize-space()='Powered by Odoo']" position="replace">
+            <t/>
+        </xpath>
+         
+    </t>
+
+   <t t-name="hide_order_tracking_number" t-inherit="point_of_sale.ReceiptHeader" t-inherit-mode="extension">
+        <xpath expr="//div[contains(@t-if, 'props.data.trackingNumber')]" position="replace">
+            <div>
+            </div>
+    </xpath>
+    </t>
+
+</templates>

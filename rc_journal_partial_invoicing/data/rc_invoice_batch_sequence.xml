@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_rc_invoice_batch" model="ir.sequence">
+        <field name="name">RC Invoice Batch</field>
+        <field name="code">rc.invoice.batch</field>
+        <field name="prefix">RCB%(y)s-</field>
+        <field name="padding">5</field>
+    </record>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rc_invoice_batch_user,access.rc.invoice.batch.user,model_rc_invoice_batch,base.group_user,1,1,1,1
+access_rc_invoice_batch_line_user,access.rc.invoice.batch.line.user,model_rc_invoice_batch_line,base.group_user,1,1,1,1
+access_rc_invoice_batch_trace_user,access.rc.invoice.batch.trace.user,model_rc_invoice_batch_trace,base.group_user,1,0,1,0
+access_rc_generate_invoice_wizard_user,access.rc.generate.invoice.wizard.user,model_rc_generate_invoice_wizard,base.group_user,1,1,1,1

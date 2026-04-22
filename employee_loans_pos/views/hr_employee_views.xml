@@ -1,0 +1,19 @@
+<odoo>
+    <record id="view_employee_loan_hr_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.loan.settings</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[last()]" position="after">
+                <page string="Prestamos" name="employee_loans">
+                    <group string="Configuracion contable de prestamos">
+                        <field name="loan_journal_id"/>
+                        <field name="loan_account_id"/>
+                        <field name="loan_counterpart_account_id"/>
+                        <field name="loan_default_journal_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

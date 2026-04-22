@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employee_loan_user,employee.loan user,model_employee_loan,base.group_user,1,1,1,1
+access_employee_loan_line_user,employee.loan.line user,model_employee_loan_line,base.group_user,1,1,1,1
+access_employee_loan_wizard_user,employee.loan.wizard user,model_employee_loan_wizard,base.group_user,1,1,1,1
+access_employee_loan_payment_wizard_user,employee.loan.payment.wizard user,model_employee_loan_payment_wizard,base.group_user,1,1,1,1

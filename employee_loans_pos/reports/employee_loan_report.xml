@@ -1,0 +1,58 @@
+<odoo>
+    <record id="action_report_employee_loan_statement" model="ir.actions.report">
+        <field name="name">Estado de Cuenta Prestamo</field>
+        <field name="model">employee.loan</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">employee_loans_pos.report_employee_loan_statement</field>
+        <field name="report_file">employee_loans_pos.report_employee_loan_statement</field>
+        <field name="print_report_name">'Estado de cuenta - %s' % (object.employee_id.name or '')</field>
+        <field name="binding_model_id" ref="model_employee_loan"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_employee_loan_statement">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="loan">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Estado de Cuenta de Prestamo</h2>
+                        <p>
+                            <strong>Empleado:</strong>
+                            <span t-esc="loan.employee_id.name"/>
+                        </p>
+                        <p>
+                            <strong>Saldo actual:</strong>
+                            <span t-esc="'%.2f' % loan.balance"/>
+                        </p>
+
+                        <table class="table table-sm o_main_table">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th class="text-end">Prestamo</th>
+                                    <th class="text-end">Abono</th>
+                                    <th class="text-end">Saldo</th>
+                                    <th>Origen</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="running_balance" t-value="0.0"/>
+                                <t t-foreach="loan.line_ids.sorted(key=lambda l: (l.date or False, l.id))" t-as="line">
+                                    <t t-if="line.type in ['debit', 'initial']" t-set="running_balance" t-value="running_balance + line.amount"/>
+                                    <t t-if="line.type == 'credit'" t-set="running_balance" t-value="running_balance - line.amount"/>
+                                    <tr>
+                                        <td><span t-esc="line.date"/></td>
+                                        <td class="text-end"><span t-esc="'%.2f' % line.loan_amount"/></td>
+                                        <td class="text-end"><span t-esc="'%.2f' % line.payment_amount"/></td>
+                                        <td class="text-end"><span t-esc="'%.2f' % running_balance"/></td>
+                                        <td><span t-esc="dict(line._fields['origin'].selection).get(line.origin)"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
